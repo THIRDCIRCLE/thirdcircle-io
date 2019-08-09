@@ -3,8 +3,12 @@ import {Server as SocketServer} from "socket.io";
 import {Http2Server} from "http2";
 import {Request, Response} from "express";
 
+
+let port: number = Number.parseInt(process.env.PORT) || 3000;
+
 const app = express();
-app.set("port", process.env.PORT || 3000);
+app.set("port", port);
+console.info('Prepared to listen on port ' + port);
 
 app.set('views', './client');
 app.set('view engine', 'pug');
@@ -45,6 +49,6 @@ io.on("connection", function (socket: any) {
 });
 
 // start our simple server up on localhost:3000
-const server = httpServer.listen(function () {
-    console.log("listening on " + app.get('port'));
+const server = httpServer.listen(port, function () {
+    console.log("listening on " + port);
 });
