@@ -11,6 +11,7 @@ app.set('view engine', 'pug');
 let http = require("http").Server(app);
 
 let io: SocketServer = require("socket.io")(http);
+io.origins('*:*');
 
 // simple '/' endpoint sending a Hello World
 // response
@@ -33,6 +34,6 @@ io.on("connection", function (socket: any) {
 });
 
 // start our simple server up on localhost:3000
-const server = http.listen(3000, function () {
-    console.log("listening on *:3000");
+const server = http.listen(function () {
+    console.log("listening on " + app.get('port'));
 });
