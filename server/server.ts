@@ -1,6 +1,7 @@
 import * as express from "express";
 import {Server as SocketServer} from "socket.io";
-import * as path from "path";
+import {Http2Server} from "http2";
+import {Request, Response} from "express";
 
 const app = express();
 app.set("port", process.env.PORT || 3000);
@@ -8,9 +9,19 @@ app.set("port", process.env.PORT || 3000);
 app.set('views', './client');
 app.set('view engine', 'pug');
 
-let http = require("http").Server(app);
+const httpServer: Http2Server = require("http").Server(app);
 
-let io: SocketServer = require("socket.io")(http);
+let io: SocketServer = require("socket.io")(httpServer, {
+    handlePreflightRequest: (req: Request, res: Response) => {
+        const headers = {
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            "Access-Control-Allow-Origin": req.headers.origin, //or the specific origin you want to give access to,
+            "Access-Control-Allow-Credentials": '' + true
+        };
+        res.writeHead(200, headers);
+        res.end();
+    }
+});
 io.origins('*:*');
 
 // simple '/' endpoint sending a Hello World
@@ -34,6 +45,6 @@ io.on("connection", function (socket: any) {
 });
 
 // start our simple server up on localhost:3000
-const server = http.listen(function () {
+const server = httpServer.listen(function () {
     console.log("listening on " + app.get('port'));
 });
