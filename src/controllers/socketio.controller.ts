@@ -3,7 +3,7 @@ import {service} from '@loopback/core';
 import {Socket, socketio} from '@loopback/socketio';
 import {RedisClient} from 'redis';
 import {RedisPublisherClientService} from 'loopback4-redis-pubsub';
-import {DataChangeMessage, EntityEvent} from 'xd-data';
+import {DataChangeMessage} from 'xd-data';
 
 import {ThirdCircle} from '../types';
 import Actions = ThirdCircle.IO.Actions;

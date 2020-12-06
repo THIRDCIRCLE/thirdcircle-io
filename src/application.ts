@@ -33,6 +33,7 @@ export class ThirdCircleIoApplication extends BootMixin(SocketIoApplication) {
     this.lifeCycleObserver(SocketIoLifecycleObserver);
     this.lifeCycleObserver(RedisPubSubLifecycleObserver);
 
+
     this.bind(REDIS_PUBSUB_DATA_HANDLER)
       .toProvider(RedisPubSubDataHandlerProvider)
       .tag({
