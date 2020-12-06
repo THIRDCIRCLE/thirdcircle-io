@@ -1,27 +1,79 @@
 {
   "name": "thirdcircle-io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server/server.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --require ts-node/register ."
+  "version": "0.0.1",
+  "description": "thirdcircle-io",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=15.3"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "type": "module",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "lb-tsc",
+    "build:watch": "lb-tsc --watch",
+    "lint": "npm run prettier:check && npm run eslint",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "eslint": "lb-eslint --report-unused-disable-directives .",
+    "eslint:fix": "npm run eslint -- --fix",
+    "pretest": "npm run rebuild",
+    "test": "lb-mocha --allow-console-logs \"dist/__tests__\"",
+    "posttest": "npm run lint",
+    "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
+    "docker:build": "docker build -t thirdcircle-io .",
+    "docker:run": "docker run -p 3000:3000 -d thirdcircle-io",
+    "premigrate": "npm run build",
+    "migrate": "node ./dist/migrate",
+    "preopenapi-spec": "npm run build",
+    "openapi-spec": "node ./dist/openapi-spec",
+    "rebuild": "npm run clean && npm run build",
+    "prestart": "npm run rebuild",
+    "start": "node -r source-map-support/register --experimental-modules --experimental-specifier-resolution=node .",
+    "clean": "lb-clean dist *.tsbuildinfo .eslintcache"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Peter Andreas Moelgaard <code@petermolgaard.com>",
+  "license": "",
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
   "dependencies": {
-    "@types/express": "^4.17.0",
-    "@types/node": "^12.7.1",
-    "@types/socket.io": "^2.1.2",
-    "@types/typescript": "^2.0.0",
-    "express": "^4.17.1",
-    "pug": "^2.0.4",
-    "socket.io": "^2.2.0",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "@loopback/boot": "^3.1.1",
+    "@loopback/core": "^2.13.0",
+    "@loopback/repository": "^3.2.1",
+    "@loopback/rest": "^9.1.0",
+    "@loopback/rest-explorer": "^3.0.4",
+    "@loopback/service-proxy": "^3.0.4",
+    "@loopback/socketio": "^0.1.1",
+    "lodash": "^4.17.20",
+    "loopback4-redis-pubsub": "^0.0.2",
+    "moment": "^2.29.1",
+    "redis": "^3.0.2",
+    "socket.io": "^2.3.0",
+    "tslib": "^2.0.3",
+    "xd-data": "file:../../xtnd-dynamics/xd-data"
   },
   "devDependencies": {
-    "dotenv": "^8.0.0"
+    "@loopback/build": "^6.2.7",
+    "@loopback/eslint-config": "^10.0.3",
+    "@loopback/testlab": "^3.2.9",
+    "@types/lodash": "^4.14.165",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^10.17.48",
+    "@types/socket.io": "^2.1.11",
+    "eslint": "^7.13.0",
+    "source-map-support": "^0.5.19",
+    "typescript": "~4.0.5"
   }
 }
