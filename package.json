@@ -1,14 +1,11 @@
 {
   "name": "thirdcircle-io",
   "version": "0.0.1",
-  "description": "thirdcircle-io",
-  "keywords": [
-    "loopback-application",
-    "loopback"
-  ],
+  "description": "THIRDCIRCLE IO System Server",
   "main": "dist/index.js",
   "engines": {
-    "node": ">=15.3"
+    "node": "15.x",
+    "npm": "7.x"
   },
   "type": "module",
   "module": "dist/index.js",
@@ -72,6 +69,7 @@
     "@types/moment": "^2.13.0",
     "@types/node": "^10.17.48",
     "@types/socket.io": "^2.1.11",
+    "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
     "source-map-support": "^0.5.19",
     "typescript": "~4.0.5"
