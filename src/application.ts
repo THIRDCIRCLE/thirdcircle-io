@@ -11,6 +11,7 @@ import {REDIS_PUBSUB_DATA_HANDLER, RedisPubSubDataHandlerProvider} from './servi
 import {EntityEvent} from '@xtnd-dynamics/xd-data';
 
 import path from 'path';
+
 _.set(global, '__dirname', path.resolve());
 
 const debug = debugFactory('loopback:example:socketio:demo');
@@ -43,7 +44,12 @@ export class ThirdCircleIoApplication extends BootMixin(SocketIoApplication) {
 
 
     this.socketServer.use((socket, next) => {
-      debug('Global middleware - socket:', socket.id);
+      console.log('Global middleware - socket:', socket.id);
+      next();
+    });
+
+    this.socketServer.on('connect', (socket, next) => {
+      console.log('Socket Connected: ' + socket.id);
       next();
     });
 
