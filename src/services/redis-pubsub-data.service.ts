@@ -1,7 +1,7 @@
 import {BindingKey, inject, Provider} from '@loopback/core';
 import {RedisMessage, RedisPubSubEvent, RedisPubSubReturnVal} from 'loopback4-redis-pubsub';
 import {SocketIoBindings, SocketIoServer} from '@loopback/socketio';
-import {DataChangeMessage, IdentifierSeperator} from 'xd-data';
+import {DataChangeMessage, IdentifierSeperator} from '@xtnd-dynamics/xd-data';
 
 
 export const REDIS_PUBSUB_DATA_HANDLER = BindingKey.create<RedisPubSubEvent>(

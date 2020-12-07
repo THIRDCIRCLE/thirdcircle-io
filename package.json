@@ -53,13 +53,13 @@
     "@loopback/rest-explorer": "^3.0.4",
     "@loopback/service-proxy": "^3.0.4",
     "@loopback/socketio": "^0.1.1",
+    "@xtnd-dynamics/xd-data": "*",
     "lodash": "^4.17.20",
     "loopback4-redis-pubsub": "^0.0.2",
     "moment": "^2.29.1",
     "redis": "^3.0.2",
     "socket.io": "^2.3.0",
-    "tslib": "^2.0.3",
-    "xd-data": "file:../../xtnd-dynamics/xd-data"
+    "tslib": "^2.0.3"
   },
   "devDependencies": {
     "@loopback/build": "^6.2.7",
