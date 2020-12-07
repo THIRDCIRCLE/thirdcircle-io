@@ -32,7 +32,8 @@
     "rebuild": "npm run clean && npm run build",
     "prestart": "npm run rebuild",
     "start": "node -r source-map-support/register --experimental-modules --experimental-specifier-resolution=node .",
-    "clean": "lb-clean dist *.tsbuildinfo .eslintcache"
+    "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
+    "ngrok": "ngrok start -config ngrok.yml local_io"
   },
   "repository": {
     "type": "git"

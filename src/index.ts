@@ -13,6 +13,9 @@ export async function main(options: ApplicationConfig = {}) {
   const httpServerOptions = {
     [HttpServerConfiguration.Keys.Host]: _.get(process.env, HttpServerConfiguration.getKey(HttpServerConfiguration.Keys.Host)),
     [HttpServerConfiguration.Keys.Port]: _.get(process.env, HttpServerConfiguration.getKey(HttpServerConfiguration.Keys.Port)),
+    [HttpServerConfiguration.Keys.CORS]: {
+      origin: '*',
+    },
   };
 
 

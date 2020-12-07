@@ -1,0 +1,10 @@
+authtoken: 1b4TqtWSmO7gVIr9nLnfrr6ZCfw_5WhtsE9D8XmdsnHPHQ6dX
+console_ui: true
+
+tunnels:
+  local_io:
+    proto: http
+    addr: http://localhost:3100
+    hostname: local-io.thirdcircle.io
+    inspect: false
+    region: us

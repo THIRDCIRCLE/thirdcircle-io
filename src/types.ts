@@ -33,7 +33,8 @@ export namespace ThirdCircle {
 
         export enum Keys {
           Host = 'host',
-          Port = 'port'
+          Port = 'port',
+          CORS = 'cors',
         }
       }
       export namespace Channels {
