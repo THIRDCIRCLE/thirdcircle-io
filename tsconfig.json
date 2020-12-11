@@ -11,11 +11,7 @@
 
     "preserveSymlinks": true,
 
-    "declaration": false,
     "downlevelIteration": true,
-
-    "target": "ESNext",
-    "module": "ESNext",
 
     "types": [
       "node",

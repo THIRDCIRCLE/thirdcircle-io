@@ -26,7 +26,7 @@ export class ThirdCircleIoApplication extends BootMixin(SocketIoApplication) {
     this.projectRoot = __dirname;
 
 
-    this.configure(RedisPubSubBindings.COMPONENT).to(options.redisPubSubOptions);
+    this.configure(RedisPubSubBindings.COMPONENT).to(options.redis);
     this.component(RedisPubSubComponent);
 
 

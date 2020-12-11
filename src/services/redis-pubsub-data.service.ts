@@ -33,6 +33,9 @@ export class RedisPubSubDataHandlerProvider implements Provider<RedisPubSubEvent
       message.id,
     ].join(IdentifierSeperator);
 
+    console.log(`Emitting Event from Server: ${eventName}`);
+
+    this.socketServer.emit(eventName, message);
     // @ts-ignore
     this.socketServer.io.sockets.emit(eventName, message);
   }

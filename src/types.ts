@@ -22,19 +22,18 @@ export namespace ThirdCircle {
     }
 
     export namespace HttpServer {
-      export namespace Configuration {
-
-        export function getKey(identifier: string): string {
-          return [Prefix, identifier].join(Seperator).toUpperCase();
+      export namespace Environment {
+        export enum Variables {
+          Host = 'HOST',
+          Port = 'PORT',
         }
-
-        export const Prefix = 'HTTP_SERVER';
-        export const Seperator = '_';
-
+      }
+      export namespace Configuration {
         export enum Keys {
           Host = 'host',
           Port = 'port',
           CORS = 'cors',
+          GRACE_PERIOD_FOR_CLOSE = 'gracePeriodForClose'
         }
       }
       export namespace Channels {

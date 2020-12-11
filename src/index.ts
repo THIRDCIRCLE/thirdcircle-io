@@ -1,34 +1,36 @@
 import _ from 'lodash';
+import path from 'path';
 import {ApplicationConfig, ThirdCircleIoApplication} from './application';
-import {RedisPubSubConfig} from 'loopback4-redis-pubsub';
-import {ThirdCircle as TC} from './types';
-import HttpServerConfiguration = TC.IO.HttpServer.Configuration;
-import RedisPubSubConfiguration = TC.IO.RedisPubSub.Configuration;
+import {ConfigurationOptions, ServerConfigurationLoader} from '@xtnd-dynamics/xd-server-config';
+import {ServerConfigurationLoaderOptions} from '@xtnd-dynamics/xd-server-config';
 
 export * from './application';
+
+
+const serverConfigurationLoaderOptions: ServerConfigurationLoaderOptions = {
+  dirname: path.join(__dirname),
+  basePath: 'configurations',
+};
+const serverConfigurationLoader = new ServerConfigurationLoader(serverConfigurationLoaderOptions);
+const httpServerOptions: ConfigurationOptions | any = serverConfigurationLoader.load({
+  namespace: 'http',
+});
+const socketIoOptions: ConfigurationOptions | any = serverConfigurationLoader.load({
+  namespace: 'socket-io',
+});
+const redisPubSubOptions: ConfigurationOptions | any = serverConfigurationLoader.load({
+  namespace: 'redis',
+});
+
 
 export async function main(options: ApplicationConfig = {}) {
 
 
-  const httpServerOptions = {
-    [HttpServerConfiguration.Keys.Host]: _.get(process.env, HttpServerConfiguration.getKey(HttpServerConfiguration.Keys.Host)),
-    [HttpServerConfiguration.Keys.Port]: _.get(process.env, HttpServerConfiguration.Keys.Port.toUpperCase()),
-    [HttpServerConfiguration.Keys.CORS]: {
-      origin: '*',
-    },
-  };
-
-
-  const redisPubSubOptions: RedisPubSubConfig = _.assign({}, {
-    [RedisPubSubConfiguration.Keys.URL]: _.get(process.env, RedisPubSubConfiguration.getKey(RedisPubSubConfiguration.Keys.URL)),
-  }) as RedisPubSubConfig;
-
-
   const $options = _.defaults({}, options, {
-    httpServerOptions: httpServerOptions,
-    redisPubSubOptions: redisPubSubOptions,
+    httpServerOptions: httpServerOptions.http,
+    socketIoOptions: socketIoOptions.socketIo,
+    redis: redisPubSubOptions.redis,
   });
-
 
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -50,18 +52,7 @@ export async function main(options: ApplicationConfig = {}) {
 
 // if (require.main === module) {
 // Run the application
-const config = {
-  rest: {
-    port: +(process.env.PORT ?? 3100),
-    host: process.env.HOST,
-    // The `gracePeriodForClose` provides a graceful close for http/https
-    // servers with keep-alive clients. The default value is `Infinity`
-    // (don't force-close). If you want to immediately destroy all sockets
-    // upon stop, set its value to `0`.
-    // See https://www.npmjs.com/package/stoppable
-    gracePeriodForClose: 5000, // 5 seconds
-  },
-};
+const config = httpServerOptions;
 main(config).catch(err => {
   console.error('Cannot start the application.', err);
   process.exit(1);
