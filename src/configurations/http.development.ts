@@ -12,5 +12,5 @@ module.exports = {
     key: fs.readFileSync(path.join(tsd, 'localhost.key')),
     cert: fs.readFileSync(path.join(tsd, 'localhost.crt')),
     [HttpServer.Configuration.Keys.GRACE_PERIOD_FOR_CLOSE]: 5000,
-  }
+  },
 };

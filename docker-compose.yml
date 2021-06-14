@@ -9,7 +9,7 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - "./data/:/var/lib/redis/data"
+      - "./data/redis:/var/lib/redis/data"
 
 #  mongo:
 #    container_name: "thirdcircle-data-mongo"

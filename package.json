@@ -52,7 +52,7 @@
     "@loopback/rest": "^9.1.0",
     "@loopback/rest-explorer": "^3.0.4",
     "@loopback/service-proxy": "^3.0.4",
-    "@loopback/socketio": "^0.1.1",
+    "@loopback/socketio": "^0.3.1",
     "@xtnd-dynamics/xd-data": "latest",
     "@xtnd-dynamics/xd-server-config": "latest",
     "lodash": "^4.17.20",
@@ -72,6 +72,7 @@
     "@types/socket.io": "^2.1.11",
     "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
+    "prettier": "^2.3.1",
     "source-map-support": "^0.5.19",
     "typescript": "~4.0.5"
   }

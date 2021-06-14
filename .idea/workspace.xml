@@ -23,7 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81b13db1-0bc9-43cd-83cf-a2ce624d4b4b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/thirdcircle-io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TC-IO.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/application.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configurations/http.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/configurations/http.development.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configurations/socket-io.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/configurations/socket-io.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +56,7 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/../../xtnd-dynamics/xd-server-config/src/index.ts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/configurations" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -62,7 +73,7 @@
       <recent name="$PROJECT_DIR$/security" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.START">
+  <component name="RunManager" selected="npm.NGROK">
     <configuration name="REDIS" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -160,7 +171,16 @@
       <workItem from="1616563016985" duration="1402000" />
       <workItem from="1616664140415" duration="67000" />
       <workItem from="1616664227196" duration="2000" />
-      <workItem from="1616667631096" duration="2618000" />
+      <workItem from="1616667631096" duration="3180000" />
+      <workItem from="1616752577187" duration="5000" />
+      <workItem from="1617435405777" duration="761000" />
+      <workItem from="1622520235693" duration="3763000" />
+      <workItem from="1622790302753" duration="2118000" />
+      <workItem from="1622820973121" duration="45000" />
+      <workItem from="1622855551000" duration="260000" />
+      <workItem from="1623634256704" duration="174000" />
+      <workItem from="1623634439213" duration="5876000" />
+      <workItem from="1623655422874" duration="2050000" />
     </task>
     <servers />
   </component>
@@ -206,5 +226,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/index.js</url>
+          <line>29</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -37,7 +37,6 @@ export async function main(options: ApplicationConfig = {}) {
 
   const app = new ThirdCircleIoApplication($options);
 
-
   await app.boot();
   await app.start();
 

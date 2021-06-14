@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/thirdcircle-io.iml" filepath="$PROJECT_DIR$/.idea/thirdcircle-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TC-IO.iml" filepath="$PROJECT_DIR$/.idea/TC-IO.iml" />
     </modules>
   </component>
 </project>
