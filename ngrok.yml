@@ -4,7 +4,7 @@ console_ui: true
 tunnels:
   local_io:
     proto: http
-    addr: http://localhost:3100
+    addr: https://localhost:3100
     hostname: local-io.thirdcircle.io
     inspect: false
     region: us
